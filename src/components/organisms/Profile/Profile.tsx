@@ -38,7 +38,7 @@ function Profile() {
           fontSize: '1.5rem',
           marginBottom: '1rem',
           marginLeft: '5rem',
-          borderBottom: 'solid 1px',
+          borderBottom: 'solid 1px #868E96',
           paddingLeft: '1rem',
         }}
       >

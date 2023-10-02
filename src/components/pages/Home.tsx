@@ -1,5 +1,11 @@
+import Profile from '../organisms/Profile/Profile'
+
 function Home() {
-  return <div>Home</div>
+  return (
+    <div>
+      <Profile />
+    </div>
+  )
 }
 
 export default Home

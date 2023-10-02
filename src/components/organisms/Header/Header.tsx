@@ -4,11 +4,11 @@ import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import IconButton from '@mui/material/IconButton'
 import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
 
 import Link from 'next/link'
 import React from 'react'
 import HeaderItem from './HeaderItem'
+import { ME } from '@/constants/me'
 
 function Header() {
   return (
@@ -23,10 +23,7 @@ function Header() {
         >
           <IconButton>
             <Link href='/'>
-              <Avatar
-                alt='Yumax-panda'
-                src='https://github.com/Yumax-panda.png'
-              />
+              <Avatar alt={ME.name} src={ME.iconUrl} />
             </Link>
           </IconButton>
 

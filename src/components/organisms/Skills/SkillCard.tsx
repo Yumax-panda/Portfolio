@@ -6,21 +6,9 @@ import Chip from '@mui/material/Chip'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
+import type { Level, Skill } from '@/constants/skills'
 
-type Tag = {
-  name: string
-  color: string
-}
-
-type Level = 0 | 1 | 2 | 3
-
-type Props = {
-  category: string
-  name: string
-  level: Level
-  imageUrl: string
-  tags: string[]
-}
+type Props = Skill
 
 function LevelField({ level }: { level: Level }) {
   const positiveColor = '#FFD700'

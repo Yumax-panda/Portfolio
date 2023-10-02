@@ -74,9 +74,27 @@ function SkillSection() {
         {skills.map((skill, index) => (
           <Grid item xs={4} key={index}>
             <SkillCard
+              category={{
+                name: 'フロントエンド',
+                color: '#61DBFB',
+              }}
               name={skill.name}
-              level={skill.level}
+              level={1}
               imageUrl={skill.imageUrl}
+              tags={[
+                {
+                  name: 'React',
+                  color: '#61DBFB',
+                },
+                {
+                  name: 'React',
+                  color: '#61DBFB',
+                },
+                {
+                  name: 'React',
+                  color: '#61DBFB',
+                },
+              ]}
             />
           </Grid>
         ))}

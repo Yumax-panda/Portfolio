@@ -33,8 +33,8 @@ function Header() {
               justifyContent: 'space-between',
             }}
           >
-            <HeaderItem title='Articles' href='/articles' />
             <HeaderItem title='Works' href='/works' />
+            <HeaderItem title='Articles' href='/articles' />
           </Box>
         </Toolbar>
       </Container>

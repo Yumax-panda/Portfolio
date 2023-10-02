@@ -70,6 +70,7 @@ function SkillSection() {
         sx={{
           display: 'flex',
         }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
       >
         {skills.map((skill, index) => (
           <Grid item xs={4} key={index}>

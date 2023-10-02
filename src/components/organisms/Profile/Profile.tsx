@@ -9,8 +9,18 @@ type ProfileFieldProps = {
 function ProfileField({ title, content }: ProfileFieldProps) {
   return (
     <Box>
-      <Typography sx={{ fontWeight: 'bold' }}>{title}</Typography>
-      <p>{content}</p>
+      <Typography sx={{ fontWeight: 'bold', fontSize: '1rem' }}>
+        {title}
+      </Typography>
+      <p
+        style={{
+          fontSize: '1rem',
+          whiteSpace: 'pre-wrap',
+          paddingLeft: '1rem',
+        }}
+      >
+        {content}
+      </p>
     </Box>
   )
 }

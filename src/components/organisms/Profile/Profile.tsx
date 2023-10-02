@@ -25,7 +25,7 @@ function ProfileField({ title, content }: ProfileFieldProps) {
   )
 }
 
-function Profile() {
+function ProfileSection() {
   return (
     <Box
       sx={{
@@ -44,7 +44,7 @@ function Profile() {
       >
         Profile
       </Typography>
-      <Grid container justifyContent={'space-around'}>
+      <Grid container justifyContent='space-around'>
         <Grid item>
           <Box
             sx={{
@@ -74,4 +74,4 @@ function Profile() {
   )
 }
 
-export default Profile
+export default ProfileSection

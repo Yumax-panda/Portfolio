@@ -15,11 +15,11 @@ type Tag = {
 type Level = 0 | 1 | 2 | 3
 
 type Props = {
-  category: Tag
+  category: string
   name: string
   level: Level
   imageUrl: string
-  tags: Tag[]
+  tags: string[]
 }
 
 function LevelField({ level }: { level: Level }) {
@@ -94,9 +94,9 @@ function SkillCard({ category, name, level, imageUrl, tags }: Props) {
           marginY: '0.5rem',
           marginLeft: '1rem',
           alignSelf: 'flex-start',
-          backgroundColor: category.color,
+          backgroundColor: '#EAF9FA',
         }}
-        label={<div>{category.name}</div>}
+        label={<div>{category}</div>}
       />
       <Grid container justifyContent='space-around'>
         <Grid item xs={6}>
@@ -111,7 +111,7 @@ function SkillCard({ category, name, level, imageUrl, tags }: Props) {
           />
         </Grid>
         <Grid item xs={6}>
-          <Box sx={{ padding: '1rem' }}>
+          <Box sx={{ paddingRight: '1rem' }}>
             <Typography
               sx={{
                 fontSize: '1.5rem',
@@ -134,10 +134,10 @@ function SkillCard({ category, name, level, imageUrl, tags }: Props) {
         {tags.map((tag, index) => (
           <Chip
             key={index}
-            label={<div>{tag.name}</div>}
+            label={<div>{tag}</div>}
             sx={{
               margin: '0.5rem',
-              backgroundColor: tag.color,
+              backgroundColor: '#EAF9FA',
             }}
           />
         ))}

@@ -27,7 +27,6 @@ function ArticleCard(props: Props) {
   }, [])
 
   return (
-    // 画像の幅に合わせる。横に余白を入れない
     <Paper
       sx={{
         display: 'flex',

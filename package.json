@@ -16,6 +16,7 @@
     "@mui/icons-material": "^5.14.11",
     "@mui/material": "^5.14.11",
     "next": "latest",
+    "node-html-parser": "^6.1.10",
     "react": "latest",
     "react-dom": "latest",
     "react-hook-form": "^7.47.0"

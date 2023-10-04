@@ -42,4 +42,5 @@ export type Post = {
   team_membership: any
   organization_url_name: string | null
   slide: boolean
+  provider: 'Qiita'
 }

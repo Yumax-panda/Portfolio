@@ -41,12 +41,18 @@ function ArticlesSection() {
         container
         sx={{
           display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'left',
         }}
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
         {articles.map((article) => (
-          <Grid item xs={4} sm={4} md={4} key={article.id}>
-            <ArticleCard {...article} />
+          <Grid item xs={4} key={article.id}>
+            <ArticleCard
+              title={article.title}
+              url={article.url}
+              provider={article.provider}
+            />
           </Grid>
         ))}
       </Grid>

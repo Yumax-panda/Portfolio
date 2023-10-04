@@ -16,6 +16,10 @@ export class QiitaClient {
         Authorization: `Bearer ${this.accessToken}`,
       },
     })
-    return response.json()
+    const posts = (await response.json()) as Omit<Post, 'provider'>[]
+    return posts.map((post) => ({
+      ...post,
+      provider: 'Qiita',
+    }))
   }
 }

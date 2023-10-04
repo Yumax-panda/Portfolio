@@ -14,7 +14,6 @@ export const useArticleCard = (): UseArticleCardReturns => {
 
   const fetchImageUrl = async (webSiteUrl: string) => {
     setIsLoading(true)
-    console.log('webSiteUrl', webSiteUrl)
     const response = await fetch(`/api/thumbnail?url=${webSiteUrl}`)
     const data = (await response.json()) as { url: string }
     setIsLoading(false)

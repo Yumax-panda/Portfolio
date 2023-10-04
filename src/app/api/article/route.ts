@@ -13,7 +13,5 @@ export async function GET(_: NextRequest) {
   ])
 
   const articles = [...qiitaPosts, ...zennPosts]
-  console.log('articles', articles)
-
   return NextResponse.json(articles, { status: 200 })
 }

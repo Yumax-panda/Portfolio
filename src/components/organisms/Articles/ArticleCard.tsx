@@ -1,12 +1,15 @@
 import StarIcon from '@mui/icons-material/Star'
 import StarBorderIcon from '@mui/icons-material/StarBorder'
+import { Typography } from '@mui/material'
 import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
+import CardMedia from '@mui/material/CardMedia'
 import Chip from '@mui/material/Chip'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect } from 'react'
 import { useArticleCard } from '@/hooks/useArticleCard'
 
@@ -17,15 +20,11 @@ type Props = {
 }
 
 function ArticleCard(props: Props) {
-  const { isLoading, setIsLoading, imageUrl, setImageUrl, fetchImageUrl } =
-    useArticleCard()
+  const { isLoading, imageUrl, fetchImageUrl } = useArticleCard()
 
   useEffect(() => {
     fetchImageUrl(props.url)
   }, [])
-
-  const HIGHT = 150
-  const RATIO = 1200 / 630
 
   return (
     // 画像の幅に合わせる。横に余白を入れない
@@ -35,11 +34,11 @@ function ArticleCard(props: Props) {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: '0',
-        padding: '0',
+        margin: '1rem auto',
+        width: '15rem',
       }}
     >
-      <Stack
+      <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -49,41 +48,53 @@ function ArticleCard(props: Props) {
           padding: '0',
         }}
       >
-        <Grid
-          item
-          xs={12}
-          sx={{
-            justifyContent: 'center',
-            display: 'flex',
-          }}
-        >
-          {isLoading ? (
-            <p>loading...</p>
-          ) : (
-            <Image
-              src={imageUrl}
-              alt={props.title}
-              width={HIGHT * RATIO}
-              height={HIGHT}
-              style={{
-                margin: 'auto 0',
-                objectFit: 'cover',
+        <Link href={props.url} style={{ textDecoration: 'none' }}>
+          <Grid
+            item
+            xs={12}
+            sx={{
+              justifyContent: 'center',
+              display: 'flex',
+            }}
+          >
+            {isLoading ? (
+              <p>loading...</p>
+            ) : (
+              <CardMedia
+                component='img'
+                src={imageUrl}
+                alt={props.title}
+                style={{
+                  margin: 'auto 0',
+                  objectFit: 'cover',
+                }}
+              />
+            )}
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sx={{
+              justifyContent: 'center',
+              display: 'flex',
+              padding: '1rem',
+            }}
+          >
+            <Typography
+              sx={{
+                fontWeight: 'bold',
+                fontSize: '1rem',
+                marginBottom: '0.5rem',
+                marginLeft: '0.5rem',
+                paddingLeft: '0.5rem',
+                color: '#868E96',
               }}
-            />
-          )}
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          sx={{
-            justifyContent: 'center',
-            display: 'flex',
-            padding: '1rem',
-          }}
-        >
-          {props.title}
-        </Grid>
-      </Stack>
+            >
+              {props.title}
+            </Typography>
+          </Grid>
+        </Link>
+      </Box>
     </Paper>
   )
 }

@@ -19,13 +19,9 @@ export class QiitaClient {
     })
     const posts = (await response.json()) as QiitaApiResponse
     return posts.map((post) => {
-      const { created_at, updated_at, ...rest } = post
       return {
-        ...rest,
-        created_at: new Date(created_at),
-        updated_at: new Date(updated_at),
         provider: 'Qiita' as ArticleProvider,
-        url: post.url,
+        ...post,
       }
     })
   }

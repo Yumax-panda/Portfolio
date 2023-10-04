@@ -29,7 +29,7 @@ export type Post = {
   body: string
   coediting: boolean
   comments_count: number
-  created_at: Date
+  created_at: string
   group: any
   id: string // Pattern: "/^[0-9a-f]{20}$/"
   likes_count: number
@@ -37,7 +37,7 @@ export type Post = {
   stocks_count: number
   tags: Tag[]
   title: string
-  updated_at: Date
+  updated_at: string
   url: string
   user: User
   page_views_count: number

@@ -5,12 +5,13 @@ import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
 import { useEffect } from 'react'
+import type { ArticleProvider } from '@/constants/article'
 import { useArticleCard } from '@/hooks/useArticleCard'
 
 type Props = {
   title: string
   url: string
-  provider: 'Qiita' | 'Zenn'
+  provider: ArticleProvider
 }
 
 function ArticleCard(props: Props) {

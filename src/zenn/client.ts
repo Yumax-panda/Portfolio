@@ -17,7 +17,7 @@ export class ZennClient {
       return {
         ...rest,
         likes_count: liked_count,
-        created_at: new Date(published_at),
+        created_at: published_at,
         provider: 'Zenn' as ArticleProvider,
         url: `${this.baseUrl}/${post.path}`,
       }

@@ -18,7 +18,7 @@ export type Post = {
   article_type: string
   emoji: string
   is_suspended_private: boolean
-  created_at: Date
+  created_at: string
   body_updated_at: string
   source_repo_updated_at: string
   pinned: boolean

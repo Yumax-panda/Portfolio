@@ -1,3 +1,4 @@
+import type { ArticleProvider } from '@/constants/article'
 import { ME } from '@/constants/me'
 import type { Post, ZennApiResponse } from '@/zenn/types'
 
@@ -10,10 +11,17 @@ export class ZennClient {
     const url = `${this.baseUrl}/api/articles?username=${ME.zennUsername}&order=latest`
     const response = await fetch(url)
     const json = (await response.json()) as ZennApiResponse
-    return json.articles.map((post) => ({
-      ...post,
-      url: `${this.baseUrl}${post.path}`,
-      provider: 'Zenn',
-    }))
+    const data = json.articles.map((post) => {
+      const { liked_count, published_at, ...rest } = post
+
+      return {
+        ...rest,
+        likes_count: liked_count,
+        created_at: new Date(published_at),
+        provider: 'Zenn' as ArticleProvider,
+        url: `${this.baseUrl}/${post.path}`,
+      }
+    })
+    return data
   }
 }

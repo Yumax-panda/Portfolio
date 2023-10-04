@@ -1,3 +1,5 @@
+import type { ArticleProvider } from '@/constants/article'
+
 export type User = {
   id: string
   username: string
@@ -11,23 +13,28 @@ export type Post = {
   title: string
   slug: string
   comments_count: number
-  liked_count: number
+  likes_count: number
   body_letters_count: number
   article_type: string
   emoji: string
   is_suspended_private: boolean
-  published_at: string
+  created_at: Date
   body_updated_at: string
   source_repo_updated_at: string
   pinned: boolean
   path: string
   publication: unknown
   user: User
-  provider: 'Zenn'
+  provider: ArticleProvider
   url: string
 }
 
+type Payload = Omit<Post, 'provider' | 'url' | 'likes_count' | 'created_at'> & {
+  liked_count: number
+  published_at: string
+}
+
 export type ZennApiResponse = {
-  articles: Omit<Post, 'provider' | 'url'>[]
+  articles: Payload[]
   next_page: number | null
 }

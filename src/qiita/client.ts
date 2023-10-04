@@ -1,4 +1,5 @@
-import type { Post } from './types'
+import type { Post, QiitaApiResponse } from './types'
+import type { ArticleProvider } from '@/constants/article'
 
 export class QiitaClient {
   private readonly baseUrl = 'https://qiita.com/api/v2'
@@ -16,10 +17,16 @@ export class QiitaClient {
         Authorization: `Bearer ${this.accessToken}`,
       },
     })
-    const posts = (await response.json()) as Omit<Post, 'provider'>[]
-    return posts.map((post) => ({
-      ...post,
-      provider: 'Qiita',
-    }))
+    const posts = (await response.json()) as QiitaApiResponse
+    return posts.map((post) => {
+      const { created_at, updated_at, ...rest } = post
+      return {
+        ...rest,
+        created_at: new Date(created_at),
+        updated_at: new Date(updated_at),
+        provider: 'Qiita' as ArticleProvider,
+        url: post.url,
+      }
+    })
   }
 }

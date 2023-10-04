@@ -4,8 +4,9 @@ export class QiitaClient {
   private readonly baseUrl = 'https://qiita.com/api/v2'
   private readonly accessToken: string
 
-  constructor(accessToken: string) {
-    this.accessToken = accessToken
+  constructor(accessToken?: string) {
+    this.accessToken =
+      accessToken || (process.env.NEXT_PUBLIC_QIITA_TOKEN as string)
   }
 
   async fetchPosts(): Promise<Post[]> {

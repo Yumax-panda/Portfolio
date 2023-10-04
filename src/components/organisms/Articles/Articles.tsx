@@ -1,8 +1,12 @@
 'use client'
 
 import { Box, Typography, Grid } from '@mui/material'
+import ArticleCard from './ArticleCard'
+import { useArticles } from '@/hooks/useArticles'
 
 function ArticlesSection() {
+  const { articles } = useArticles()
+
   return (
     <Box
       sx={{
@@ -39,7 +43,13 @@ function ArticlesSection() {
           display: 'flex',
         }}
         columns={{ xs: 4, sm: 8, md: 12 }}
-      ></Grid>
+      >
+        {articles.map((article) => (
+          <Grid item xs={4} sm={4} md={4} key={article.id}>
+            <ArticleCard {...article} />
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   )
 }

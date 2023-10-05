@@ -1,6 +1,7 @@
 'use client'
 
 import { Box, Typography, Grid } from '@mui/material'
+import WorkCard from './WorkCard'
 import { useWorks } from '@/hooks/useWorks'
 
 function WorkSection() {
@@ -41,11 +42,18 @@ function WorkSection() {
         container
         sx={{
           display: 'flex',
+          padding: '1rem',
         }}
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
         {works.map((work, index) => (
-          <Grid item xs={4} key={index}></Grid>
+          <Grid item xs={4} key={index}>
+            <WorkCard
+              name={work.name}
+              imageUrl={work.imageUrl}
+              priority={work.priority}
+            />
+          </Grid>
         ))}
       </Grid>
     </Box>

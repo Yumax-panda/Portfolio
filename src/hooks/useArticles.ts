@@ -36,25 +36,23 @@ export const useArticles = (): UseArticlesReturn => {
   })
   const [hits, setHits] = useState(0)
 
-  const fetchArticles = async () => {
-    setIsLoading(true)
-    try {
-      const response = await fetch('/api/article')
-      const json = (await response.json()) as Post[]
-      setArticles(json)
-      setProcessedArticles(
-        json.sort((a, b) => handleSortBy(a, b, 'created_at')),
-      )
-      setHits(json.length)
-      console.log('articles', json)
-    } catch (error) {
-      setError(error)
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
   useEffect(() => {
+    const fetchArticles = async () => {
+      setIsLoading(true)
+      try {
+        const response = await fetch('/api/article')
+        const json = (await response.json()) as Post[]
+        setArticles(json)
+        setProcessedArticles(
+          json.sort((a, b) => handleSortBy(a, b, 'created_at')),
+        )
+        setHits(json.length)
+      } catch (error) {
+        setError(error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
     fetchArticles()
   }, [])
 

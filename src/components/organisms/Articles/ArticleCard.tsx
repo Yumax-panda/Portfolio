@@ -19,7 +19,7 @@ function ArticleCard(props: Props) {
 
   useEffect(() => {
     fetchImageUrl(props.url)
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Paper

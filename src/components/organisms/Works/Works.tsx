@@ -49,7 +49,16 @@ function WorkSection() {
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
           {works.map((work, index) => (
-            <Grid item xs={4} key={index}>
+            <Grid
+              item
+              xs={4}
+              key={index}
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
               <WorkCard onClick={handleOpen(work)} work={work} />
             </Grid>
           ))}

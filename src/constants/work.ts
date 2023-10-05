@@ -28,7 +28,7 @@ export type Work = {
   features?: string[]
   imagePath?: string
   categories: Category[]
-  recomended?: boolean
+  priority: number
   skills?: WorkTag[]
   frontend?: WorkTag[]
   backend?: WorkTag[]
@@ -58,7 +58,7 @@ export const works: Work[] = [
     categories: ['Hobby'],
     libraries: ['discord.py'],
     infra: ['deta.space', 'Heroku', 'Firebase'],
-    recomended: true,
+    priority: 10,
     url: 'https://discord.com/api/oauth2/authorize?client_id=1038322985146273853&permissions=854027660408&scope=applications.commands%20bot',
     github: 'https://github.com/Yumax-panda/MK8DX-discordbot',
   },

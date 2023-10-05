@@ -4,7 +4,7 @@ import { Box, Typography, Grid } from '@mui/material'
 import ArticleCard from './ArticleCard'
 import { useArticles } from '@/hooks/useArticles'
 
-function ArticlesSection() {
+function ArticleSection() {
   const { articles } = useArticles()
 
   return (
@@ -59,4 +59,4 @@ function ArticlesSection() {
   )
 }
 
-export default ArticlesSection
+export default ArticleSection

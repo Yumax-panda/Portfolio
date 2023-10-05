@@ -48,11 +48,7 @@ function WorkSection() {
       >
         {works.map((work, index) => (
           <Grid item xs={4} key={index}>
-            <WorkCard
-              name={work.name}
-              imageUrl={work.imageUrl}
-              priority={work.priority}
-            />
+            <WorkCard onClick={() => {}} work={work} />
           </Grid>
         ))}
       </Grid>

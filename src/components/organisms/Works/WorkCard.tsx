@@ -1,16 +1,18 @@
 import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
 import CardMedia from '@mui/material/CardMedia'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
+import type { Work } from '@/constants/work'
 
 type Props = {
-  name: string
-  imageUrl: string
-  priority: number
+  work: Work
+  onClick: () => void
 }
 
-function WorkCard({ name, imageUrl, priority }: Props) {
+function WorkCard({ work, onClick }: Props) {
+  const { name, imageUrl } = work
   return (
     <Paper
       sx={{
@@ -56,7 +58,6 @@ function WorkCard({ name, imageUrl, priority }: Props) {
           xs={12}
           sx={{
             justifyContent: 'center',
-            display: 'flex',
             padding: '1rem',
           }}
         >
@@ -72,6 +73,25 @@ function WorkCard({ name, imageUrl, priority }: Props) {
           >
             {name}
           </Typography>
+          <Button
+            onClick={onClick}
+            variant='outlined'
+            color='primary'
+            sx={{
+              display: 'flex',
+              marginX: 'auto',
+              fontWeight: 'bold',
+            }}
+          >
+            <span
+              style={{
+                paddingRight: '1rem',
+                paddingLeft: '1rem',
+              }}
+            >
+              詳細
+            </span>
+          </Button>
         </Grid>
       </Box>
     </Paper>

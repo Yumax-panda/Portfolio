@@ -41,6 +41,7 @@ function WorkCard({ work, onClick }: Props) {
           sx={{
             justifyContent: 'center',
             display: 'flex',
+            padding: '0.2rem',
           }}
         >
           <CardMedia
@@ -50,6 +51,7 @@ function WorkCard({ work, onClick }: Props) {
             style={{
               margin: 'auto 0',
               objectFit: 'cover',
+              borderRadius: '0.2rem',
             }}
           />
         </Grid>

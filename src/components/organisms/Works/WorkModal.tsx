@@ -55,7 +55,15 @@ function ModalContent({ work, onClose }: ModalContentProps) {
         }}
       />
       <Container>
-        <p id='modal-modal-description'>{work.description}</p>
+        <Typography
+          id='modal-modal-description'
+          sx={{
+            mt: 2,
+            paddingLeft: '1rem',
+          }}
+        >
+          {work.description}
+        </Typography>
         <OptionalSection title='機能' items={work.features} />
       </Container>
       <Button variant='outlined' onClick={onClose}>

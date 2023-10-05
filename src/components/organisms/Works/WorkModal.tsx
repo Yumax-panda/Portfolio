@@ -1,7 +1,17 @@
 import ClearIcon from '@mui/icons-material/Clear'
 import Box from '@mui/material/Box'
 import Modal from '@mui/material/Modal'
+import Stack from '@mui/material/Stack'
 import type { Work } from '@/constants/work'
+
+function ModalContent({ work }: { work: Work }) {
+  return (
+    <div>
+      <h2 id='modal-modal-title'>{work.name}</h2>
+      <p id='modal-modal-description'>{work.description}</p>
+    </div>
+  )
+}
 
 export type Props = {
   open: boolean
@@ -26,12 +36,21 @@ function WorkModal({ open, work, onClose }: Props) {
           width: 400,
           bgcolor: 'background.paper',
           border: '2px solid #000',
+          borderRadius: '1rem',
           boxShadow: 24,
           p: 4,
         }}
       >
-        <h2 id='modal-modal-title'>{work.name}</h2>
-        <p id='modal-modal-description'>{work.description}</p>
+        <Stack
+          direction='row'
+          spacing={2}
+          sx={{
+            justifyContent: 'flex-end',
+          }}
+        >
+          <ClearIcon onClick={onClose} />
+        </Stack>
+        <ModalContent work={work} />
       </Box>
     </Modal>
   )

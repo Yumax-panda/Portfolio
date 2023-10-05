@@ -2,7 +2,7 @@ import ClearIcon from '@mui/icons-material/Clear'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import MuiCardMedia from '@mui/material/CardMedia'
+import CardMedia from '@mui/material/CardMedia'
 import Container from '@mui/material/Container'
 import IconButton from '@mui/material/IconButton'
 import Modal from '@mui/material/Modal'
@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography'
 import List from '@/components/elements/List/List'
 import NestedList from '@/components/elements/List/NestedList'
 import Section from '@/components/elements/Section/Section'
-import type { Work } from '@/constants/work'
+import { works, type Work } from '@/constants/work'
 
 type OptionalSectionProps = {
   title: string
@@ -25,40 +25,6 @@ function OptionalSection({ title, items }: OptionalSectionProps) {
       <List items={items} />
     </Section>
   ) : null
-}
-
-type CardMediaProps = {
-  work: Work
-}
-
-function CardMedia({ work }: CardMediaProps) {
-  const { name, imageUrl, url } = work
-
-  return url ? (
-    <MuiCardMedia
-      component='img'
-      src={imageUrl}
-      alt={name}
-      onClick={() => window.open(url, '_blank')}
-      style={{
-        margin: 'auto 0',
-        objectFit: 'cover',
-        cursor: 'pointer',
-        borderRadius: '0.2rem',
-      }}
-    />
-  ) : (
-    <MuiCardMedia
-      component='img'
-      src={imageUrl}
-      alt={name}
-      style={{
-        margin: 'auto 0',
-        objectFit: 'cover',
-        borderRadius: '0.2rem',
-      }}
-    />
-  )
 }
 
 type ModalContentProps = {
@@ -87,21 +53,31 @@ function ModalContent({ work, onClose }: ModalContentProps) {
         alignItems: 'center',
       }}
     >
-      <CardMedia work={work} />
+      <CardMedia
+        component='img'
+        src={work.imageUrl}
+        alt={work.name}
+        style={{
+          margin: 'auto',
+          objectFit: 'cover',
+          borderRadius: '0.2rem',
+        }}
+      />
       <Container>
-        <Typography
-          id='modal-modal-description'
-          sx={{
-            mt: 2,
-            paddingLeft: '1rem',
-          }}
-        >
-          {work.description}
-        </Typography>
-        <OptionalSection title='機能' items={work.features} />
-        <Section title='詳細'>
+        <Section title={work.name} url={work.url}>
+          <Typography
+            id='modal-modal-description'
+            sx={{
+              mt: 2,
+              paddingLeft: '1rem',
+              marginY: '1rem',
+            }}
+          >
+            {work.description}
+          </Typography>
           <NestedList items={items} />
         </Section>
+        <OptionalSection title='機能' items={work.features} />
       </Container>
       <Button variant='outlined' onClick={onClose}>
         Close

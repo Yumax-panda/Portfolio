@@ -23,7 +23,7 @@ function ListItem({ item }: ListItemProps) {
       <Typography
         sx={{
           fontWeight: 'bold',
-          fontSize: '0.8rem',
+          fontSize: '1rem',
           marginBottom: '0.5rem',
           marginLeft: '-1rem',
           marginY: 'auto',
@@ -33,6 +33,7 @@ function ListItem({ item }: ListItemProps) {
       </Typography>
       <Typography
         sx={{
+          fontSize: '1rem',
           color: '#868E96',
           marginY: 'auto',
         }}

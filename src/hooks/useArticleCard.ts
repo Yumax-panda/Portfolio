@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-type UseArticleCardReturns = {
+type UseArticleCard = {
   isLoading: boolean
   setIsLoading: (isLoading: boolean) => void
   imageUrl: string
@@ -8,7 +8,7 @@ type UseArticleCardReturns = {
   fetchImageUrl: (url: string) => void
 }
 
-export const useArticleCard = (): UseArticleCardReturns => {
+export const useArticleCard = (): UseArticleCard => {
   const [isLoading, setIsLoading] = useState(false)
   const [imageUrl, setImageUrl] = useState('')
 

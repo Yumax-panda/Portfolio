@@ -6,7 +6,7 @@ import { useSkills } from '@/hooks/useSkills'
 
 function SkillSection() {
   // TODO: implement filtering
-  const { filteredSkills } = useSkills()
+  const { skills } = useSkills()
 
   return (
     <Box
@@ -33,7 +33,7 @@ function SkillSection() {
         }}
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
-        {filteredSkills.map((skill, index) => (
+        {skills.map((skill, index) => (
           <Grid item xs={4} key={index}>
             <SkillCard {...skill} />
           </Grid>

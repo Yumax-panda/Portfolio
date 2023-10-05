@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, use } from 'react'
 import { useForm } from 'react-hook-form'
 import type { UseFormRegister } from 'react-hook-form'
 import type { ArticleProvider } from '@/constants/article'
@@ -14,27 +14,28 @@ type FormValues = {
   filterBy: FilterBy
 }
 
-type UseArticlesReturn = {
+type UseArticles = {
   articles: Post[]
   isLoading: boolean
   error: unknown
-  handleSubmit: () => void
   register: UseFormRegister<FormValues>
   hits: number
 }
 
-export const useArticles = (): UseArticlesReturn => {
+export const useArticles = (): UseArticles => {
   const [articles, setArticles] = useState<Post[]>([])
   const [processedArticles, setProcessedArticles] = useState<Post[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<unknown>(null)
-  const { register, handleSubmit: defaultHandleSubmit } = useForm<FormValues>({
+  const { register, watch } = useForm<FormValues>({
     defaultValues: {
-      sortBy: 'likes_count',
+      sortBy: 'created_at',
       filterBy: 'All',
     },
   })
   const [hits, setHits] = useState(0)
+  const filterBy = watch('filterBy')
+  const sortBy = watch('sortBy')
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -43,9 +44,6 @@ export const useArticles = (): UseArticlesReturn => {
         const response = await fetch('/api/article')
         const json = (await response.json()) as Post[]
         setArticles(json)
-        setProcessedArticles(
-          json.sort((a, b) => handleSortBy(a, b, 'created_at')),
-        )
         setHits(json.length)
       } catch (error) {
         setError(error)
@@ -56,15 +54,13 @@ export const useArticles = (): UseArticlesReturn => {
     fetchArticles()
   }, [])
 
-  const handleSubmit = defaultHandleSubmit((data) => {
-    const { sortBy, filterBy } = data
-    const filtered = articles.filter((article) =>
-      handleFilterBy(article, filterBy),
+  useEffect(() => {
+    setProcessedArticles(
+      articles
+        .filter((article) => handleFilterBy(article, filterBy))
+        .sort((a, b) => handleSortBy(a, b, sortBy)),
     )
-    const sorted = filtered.sort((a, b) => handleSortBy(a, b, sortBy))
-    setProcessedArticles(sorted)
-    setHits(sorted.length)
-  })
+  }, [filterBy, sortBy, articles])
 
   const handleFilterBy = (article: Post, filterBy: FilterBy) => {
     return filterBy === 'All' || article.provider === filterBy
@@ -81,7 +77,6 @@ export const useArticles = (): UseArticlesReturn => {
     articles: processedArticles,
     isLoading,
     error,
-    handleSubmit,
     register,
     hits,
   }

@@ -16,7 +16,7 @@ function Section({ title, children }: Props) {
       <Typography
         sx={{
           fontWeight: 'bold',
-          fontSize: '1.5rem',
+          fontSize: '1.2rem',
           marginBottom: '0.5rem',
           borderBottom: 'solid 1px #868E96',
           paddingLeft: '1rem',

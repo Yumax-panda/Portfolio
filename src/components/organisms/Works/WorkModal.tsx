@@ -1,33 +1,25 @@
 import ClearIcon from '@mui/icons-material/Clear'
+import GitHubIcon from '@mui/icons-material/GitHub'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import CardMedia from '@mui/material/CardMedia'
+import MuiCardMedia from '@mui/material/CardMedia'
 import Container from '@mui/material/Container'
+import IconButton from '@mui/material/IconButton'
 import Modal from '@mui/material/Modal'
 import Stack from '@mui/material/Stack'
+import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
 import List from '@/components/elements/List/List'
+import NestedList from '@/components/elements/List/NestedList'
 import Section from '@/components/elements/Section/Section'
 import type { Work } from '@/constants/work'
 
-export type Props = {
-  open: boolean
-  work: Work
-  onClose: () => void
-}
-
-type ModalContentProps = {
-  work: Work
-  onClose: () => void
-}
-
-function OptionalSection({
-  title,
-  items,
-}: {
+type OptionalSectionProps = {
   title: string
   items?: string[]
-}) {
+}
+
+function OptionalSection({ title, items }: OptionalSectionProps) {
   return items ? (
     <Section title={title}>
       <List items={items} />
@@ -35,7 +27,57 @@ function OptionalSection({
   ) : null
 }
 
+type CardMediaProps = {
+  work: Work
+}
+
+function CardMedia({ work }: CardMediaProps) {
+  const { name, imageUrl, url } = work
+
+  return url ? (
+    <MuiCardMedia
+      component='img'
+      src={imageUrl}
+      alt={name}
+      onClick={() => window.open(url, '_blank')}
+      style={{
+        margin: 'auto 0',
+        objectFit: 'cover',
+        cursor: 'pointer',
+        borderRadius: '0.2rem',
+      }}
+    />
+  ) : (
+    <MuiCardMedia
+      component='img'
+      src={imageUrl}
+      alt={name}
+      style={{
+        margin: 'auto 0',
+        objectFit: 'cover',
+        borderRadius: '0.2rem',
+      }}
+    />
+  )
+}
+
+type ModalContentProps = {
+  work: Work
+  onClose: () => void
+}
+
 function ModalContent({ work, onClose }: ModalContentProps) {
+  const items = [
+    { title: '使用言語', fields: work.languages },
+    { title: '使用技術', fields: work.skills },
+    { title: 'フロントエンド', fields: work.frontend },
+    { title: 'バックエンド', fields: work.backend },
+    { title: 'フレームワーク', fields: work.frameworks },
+    { title: 'ライブラリ', fields: work.libraries },
+    { title: 'インフラ', fields: work.infra },
+    { title: 'ツール', fields: work.tools },
+  ]
+
   return (
     <Box
       sx={{
@@ -45,15 +87,7 @@ function ModalContent({ work, onClose }: ModalContentProps) {
         alignItems: 'center',
       }}
     >
-      <CardMedia
-        component='img'
-        src={work.imageUrl}
-        alt={work.name}
-        style={{
-          margin: 'auto 0',
-          objectFit: 'cover',
-        }}
-      />
+      <CardMedia work={work} />
       <Container>
         <Typography
           id='modal-modal-description'
@@ -65,12 +99,71 @@ function ModalContent({ work, onClose }: ModalContentProps) {
           {work.description}
         </Typography>
         <OptionalSection title='機能' items={work.features} />
+        <Section title='詳細'>
+          <NestedList items={items} />
+        </Section>
       </Container>
       <Button variant='outlined' onClick={onClose}>
         Close
       </Button>
     </Box>
   )
+}
+
+type ModalTitleProps = {
+  name: string
+  github?: string
+}
+
+function ModalTitle({ name, github }: ModalTitleProps) {
+  return (
+    <Stack
+      direction='row'
+      spacing={2}
+      sx={{
+        justifyContent: 'space-between',
+      }}
+    >
+      <div style={{ display: 'flex', marginBottom: '0.5rem' }}>
+        <Typography
+          id='modal-modal-title'
+          sx={{
+            fontWeight: 'bold',
+            fontSize: '1.5rem',
+            marginY: 'auto',
+            marginLeft: '0.5rem',
+            paddingLeft: '1rem',
+          }}
+        >
+          {name}
+        </Typography>
+        {github && (
+          <Tooltip title='Source' placement='right-start'>
+            <IconButton
+              onClick={() => window.open(github, '_blank')}
+              sx={{
+                marginY: 'auto',
+                objectFit: 'cover',
+                cursor: 'pointer',
+              }}
+            >
+              <GitHubIcon
+                sx={{
+                  fontSize: '2rem',
+                }}
+              />
+            </IconButton>
+          </Tooltip>
+        )}
+      </div>
+    </Stack>
+  )
+}
+
+export type Props = {
+  open: boolean
+  work: Work
+  onClose: () => void
 }
 
 function WorkModal({ open, work, onClose }: Props) {
@@ -87,15 +180,15 @@ function WorkModal({ open, work, onClose }: Props) {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: '50vw',
           bgcolor: 'background.paper',
           border: '2px solid #000',
-          borderRadius: '1rem',
+          borderRadius: '0.5rem',
           boxShadow: 24,
           p: 4,
           maxHeight: '80vh',
           overflowY: 'scroll',
         }}
+        width={{ xs: '90vw', sm: '80vw', md: '60vw', lg: '50vw' }}
       >
         <Stack
           direction='row'
@@ -104,7 +197,7 @@ function WorkModal({ open, work, onClose }: Props) {
             justifyContent: 'space-between',
           }}
         >
-          <h2 id='modal-modal-title'>{work.name}</h2>
+          <ModalTitle name={work.name} github={work.github} />
           <ClearIcon onClick={onClose} />
         </Stack>
         <ModalContent work={work} onClose={onClose} />

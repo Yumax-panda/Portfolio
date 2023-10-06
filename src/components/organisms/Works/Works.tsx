@@ -16,30 +16,39 @@ function WorkSection() {
           marginTop: '4rem',
         }}
       >
-        <Typography
+        <Grid
+          container
           sx={{
-            fontWeight: 'bold',
-            fontSize: '2rem',
-            marginBottom: '1rem',
-            marginLeft: '5rem',
             borderBottom: 'solid 1px #868E96',
-            paddingLeft: '1rem',
-          }}
-        >
-          Works
-        </Typography>
-        <Typography
-          sx={{
-            fontWeight: 'bold',
-            fontSize: '1.5rem',
             marginBottom: '1rem',
-            marginLeft: '5rem',
-            paddingLeft: '1rem',
-            color: '#868E96',
+            display: 'flex',
+            flexDirection: 'row',
           }}
         >
-          Yumax-pandaの制作物
-        </Typography>
+          <Grid item sx={{ marginY: 'auto' }}>
+            <Typography
+              sx={{
+                fontWeight: 'bold',
+                fontSize: '2rem',
+                marginLeft: '5rem',
+              }}
+            >
+              Works
+            </Typography>
+          </Grid>
+          <Grid item sx={{ marginY: 'auto' }}>
+            <Typography
+              sx={{
+                fontWeight: 'bold',
+                fontSize: '1.5rem',
+                marginLeft: '5rem',
+                color: '#868E96',
+              }}
+            >
+              Yumax-pandaの制作物
+            </Typography>
+          </Grid>
+        </Grid>
         <Grid
           container
           sx={{

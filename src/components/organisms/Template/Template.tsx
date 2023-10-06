@@ -6,6 +6,7 @@ type Props = {
   children: React.ReactNode
 }
 
+// TODO: implement Footer
 function Template({ children }: Props) {
   return (
     <div>

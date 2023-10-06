@@ -23,19 +23,26 @@ function ListItem({ item }: ListItemProps) {
       <Typography
         sx={{
           fontWeight: 'bold',
-          fontSize: '1rem',
           marginBottom: '0.5rem',
-          marginLeft: '-1rem',
+          marginLeft: '1rem',
           marginY: 'auto',
+          whiteSpace: 'nowrap',
+        }}
+        fontSize={{
+          xs: '0.8rem',
+          sm: '1rem',
         }}
       >
         {item.title}:&nbsp;
       </Typography>
       <Typography
         sx={{
-          fontSize: '1rem',
           color: '#868E96',
           marginY: 'auto',
+        }}
+        fontSize={{
+          xs: '0.8rem',
+          sm: '1rem',
         }}
       >
         {item.fields.join(' / ')}
@@ -53,10 +60,17 @@ function NestedList({ items }: Props) {
     <ul
       style={{
         listStyle: 'none',
+        padding: '0',
       }}
     >
       {items.map((item, index) => (
-        <li key={index}>
+        <li
+          key={index}
+          style={{
+            margin: '0',
+            padding: '0',
+          }}
+        >
           <ListItem item={item} />
         </li>
       ))}

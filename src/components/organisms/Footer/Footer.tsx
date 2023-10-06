@@ -1,13 +1,10 @@
 import GitHubIcon from '@mui/icons-material/GitHub'
 import AppBar from '@mui/material/AppBar'
-import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
-import IconButton from '@mui/material/IconButton'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 
-import Link from 'next/link'
 import React from 'react'
 import FooterItem from './FooterIcon'
 import { ME } from '@/constants/me'
@@ -37,7 +34,7 @@ function Footer() {
               flexDirection: 'row',
             }}
           >
-            <Typography>Copyright © 2023 {ME.name}.</Typography>
+            <Typography>Copyright 2023 {ME.name}.</Typography>
           </Box>
 
           <Box

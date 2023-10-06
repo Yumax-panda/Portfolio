@@ -13,30 +13,39 @@ function ArticleSection() {
         marginTop: '4rem',
       }}
     >
-      <Typography
+      <Grid
+        container
         sx={{
-          fontWeight: 'bold',
-          fontSize: '2rem',
-          marginBottom: '1rem',
-          marginLeft: '5rem',
           borderBottom: 'solid 1px #868E96',
-          paddingLeft: '1rem',
-        }}
-      >
-        Articles
-      </Typography>
-      <Typography
-        sx={{
-          fontWeight: 'bold',
-          fontSize: '1.5rem',
           marginBottom: '1rem',
-          marginLeft: '5rem',
-          paddingLeft: '1rem',
-          color: '#868E96',
+          display: 'flex',
+          flexDirection: 'row',
         }}
       >
-        Yumax-pandaが執筆した記事たち
-      </Typography>
+        <Grid item sx={{ marginY: 'auto' }}>
+          <Typography
+            sx={{
+              fontWeight: 'bold',
+              fontSize: '2rem',
+              marginLeft: '5rem',
+            }}
+          >
+            Articles
+          </Typography>
+        </Grid>
+        <Grid item sx={{ marginY: 'auto' }}>
+          <Typography
+            sx={{
+              fontWeight: 'bold',
+              marginLeft: '5rem',
+              color: '#868E96',
+            }}
+            fontSize={{ md: '1.4rem', lg: '1.5rem' }}
+          >
+            Yumax-pandaが書いた記事
+          </Typography>
+        </Grid>
+      </Grid>
       <Grid
         container
         sx={{

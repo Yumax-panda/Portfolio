@@ -34,7 +34,7 @@ type ModalContentProps = {
 
 function ModalContent({ work, onClose }: ModalContentProps) {
   const items = [
-    { title: '使用言語', fields: work.languages },
+    { title: '言語', fields: work.languages },
     { title: '使用技術', fields: work.skills },
     { title: 'フロントエンド', fields: work.frontend },
     { title: 'バックエンド', fields: work.backend },

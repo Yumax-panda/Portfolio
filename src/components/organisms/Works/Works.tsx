@@ -40,10 +40,10 @@ function WorkSection() {
             <Typography
               sx={{
                 fontWeight: 'bold',
-                fontSize: '1.5rem',
                 marginLeft: '5rem',
                 color: '#868E96',
               }}
+              fontSize={{ md: '1.4rem', lg: '1.5rem' }}
             >
               Yumax-pandaの制作物
             </Typography>

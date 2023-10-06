@@ -37,9 +37,7 @@ function Footer() {
               flexDirection: 'row',
             }}
           >
-            <Typography>
-              Copyright © 2023 {ME.name}. All Rights Reserved.
-            </Typography>
+            <Typography>Copyright © 2023 {ME.name}.</Typography>
           </Box>
 
           <Box

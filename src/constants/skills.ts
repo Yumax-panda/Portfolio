@@ -150,7 +150,7 @@ export const skills: Skill[] = [
   {
     name: 'Vercel',
     level: 1,
-    imageUrl: '/vercel.svg',
+    imageUrl: '/vercel.png',
     category: 'Infra',
     tags: ['Frontend', 'Backend'],
   },

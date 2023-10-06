@@ -2,6 +2,7 @@ import StarIcon from '@mui/icons-material/Star'
 import StarBorderIcon from '@mui/icons-material/StarBorder'
 import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
+import CardMedia from '@mui/material/CardMedia'
 import Chip from '@mui/material/Chip'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
@@ -88,13 +89,15 @@ function SkillCard({ category, name, level, imageUrl, tags }: Props) {
       />
       <Grid container justifyContent='space-around'>
         <Grid item xs={6}>
-          <Avatar
+          <CardMedia
+            component='img'
+            image={imageUrl}
             alt={name}
-            src={imageUrl}
             sx={{
+              marginX: 'auto',
               width: '5rem',
               height: '5rem',
-              padding: '1rem',
+              objectFit: 'contain',
             }}
           />
         </Grid>

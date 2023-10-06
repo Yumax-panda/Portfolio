@@ -85,14 +85,16 @@ function WorkCard({ work, onClick }: Props) {
               fontWeight: 'bold',
             }}
           >
-            <span
+            <Typography
               style={{
+                fontSize: '0.8rem',
+                fontWeight: 'bold',
                 paddingRight: '1rem',
                 paddingLeft: '1rem',
               }}
             >
               詳細
-            </span>
+            </Typography>
           </Button>
         </Grid>
       </Box>

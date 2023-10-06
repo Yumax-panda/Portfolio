@@ -5,6 +5,7 @@ import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import IconButton from '@mui/material/IconButton'
 import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
 
 import Link from 'next/link'
 import React from 'react'
@@ -30,11 +31,16 @@ function Footer() {
             justifyContent: 'space-between',
           }}
         >
-          <IconButton>
-            <Link href='/'>
-              <Avatar alt={ME.name} src={ME.iconUrl} />
-            </Link>
-          </IconButton>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+            }}
+          >
+            <Typography>
+              Copyright © 2023 {ME.name}. All Rights Reserved.
+            </Typography>
+          </Box>
 
           <Box
             sx={{
@@ -43,7 +49,11 @@ function Footer() {
             }}
           >
             <FooterItem title='GitHub' href={ME.github}>
-              <GitHubIcon />
+              <GitHubIcon
+                sx={{
+                  fontSize: '2rem',
+                }}
+              />
             </FooterItem>
           </Box>
         </Toolbar>

@@ -9,6 +9,7 @@ import React from 'react'
 import FooterItem from './FooterIcon'
 import { ME } from '@/constants/me'
 
+// FIXME: コンテンツが少ないときにフッターの下に空白ができる
 function Footer() {
   return (
     <AppBar

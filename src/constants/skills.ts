@@ -86,4 +86,26 @@ export const skills: Skill[] = [
     category: 'Infra',
     tags: ['Backend'],
   },
+  {
+    name: 'Git',
+    level: 1,
+    imageUrl: 'https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png',
+    category: 'Tool',
+    tags: ['Other'],
+  },
+  {
+    name: 'Deta.space',
+    level: 2,
+    imageUrl: 'https://avatars.githubusercontent.com/u/47275976?s=280&v=4',
+    category: 'Infra',
+    tags: ['Backend'],
+  },
+  {
+    name: 'Prisma',
+    level: 1,
+    imageUrl:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY_Pi9HgTiqvYOQOBH7DxwbR9RnQlOl-_D1PrznCB-wtH0htSl-bxwCaKPysP5D9B_veM&usqp=CAU',
+    category: 'Library',
+    tags: ['Backend'],
+  },
 ]

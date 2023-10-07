@@ -16,6 +16,7 @@
     "@mui/icons-material": "^5.14.11",
     "@mui/material": "^5.14.11",
     "dayjs": "^1.11.10",
+    "gsap": "^3.12.2",
     "next": "latest",
     "node-html-parser": "^6.1.10",
     "react": "latest",

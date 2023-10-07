@@ -8,6 +8,9 @@ type UseSkills = {
   skills: Skill[]
   more: boolean
   displayMore: () => void
+  count: number
+  getDelay: (index: number) => number
+  duration: number
 }
 
 type Category = _Category | 'All'
@@ -17,8 +20,11 @@ type FormValues = {
 }
 
 export const useSkills = (): UseSkills => {
+  const batch = 10
+  const duration = 0.1
+
   const [filteredSkills, setFilteredSkills] = useState(initialSkills)
-  const [count, setCount] = useState(10)
+  const [count, setCount] = useState(batch)
   const [more, setMore] = useState(true)
   const { register, watch } = useForm<FormValues>({
     defaultValues: {
@@ -37,17 +43,22 @@ export const useSkills = (): UseSkills => {
   }, [filterBy])
 
   const displayMore = () => {
-    const next = count + 10
+    const next = count + batch
     if (next >= filteredSkills.length) {
       setMore(false)
     }
     setCount(next)
   }
 
+  const getDelay = (index: number) => (index % batch) * duration
+
   return {
     register,
     skills: filteredSkills.slice(0, count),
     more,
     displayMore,
+    count,
+    getDelay,
+    duration,
   }
 }

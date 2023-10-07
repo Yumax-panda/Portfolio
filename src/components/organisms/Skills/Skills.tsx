@@ -4,11 +4,12 @@ import { Box, Grid } from '@mui/material'
 import ViewMoreButton from '../Button/ViewMoreButton'
 import SectionHeader from '../Section/SectionHeader'
 import SkillCard from './SkillCard'
+import SkillTransition from './SkillTransition'
 import { useSkills } from '@/hooks/useSkills'
 
 function SkillSection() {
   // TODO: implement filtering, sorting function
-  const { skills, more, displayMore } = useSkills()
+  const { skills, more, displayMore, count, getDelay } = useSkills()
 
   return (
     <Box
@@ -24,9 +25,11 @@ function SkillSection() {
         }}
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
-        {skills.map((skill) => (
+        {skills.map((skill, index) => (
           <Grid item xs={4} key={skill.name}>
-            <SkillCard {...skill} />
+            <SkillTransition delay={getDelay(index)} duration={0.5}>
+              <SkillCard {...skill} />
+            </SkillTransition>
           </Grid>
         ))}
       </Grid>

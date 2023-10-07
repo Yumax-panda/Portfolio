@@ -39,7 +39,6 @@ function ArticleSection() {
                 imageUrl={article.imageUrl}
                 likes_count={article.likes_count}
                 created_at={article.created_at}
-                provider={article.provider}
               />
             </Grid>
           ))}

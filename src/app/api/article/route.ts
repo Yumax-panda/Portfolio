@@ -1,17 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { QiitaClient } from '@/qiita'
-import { ZennClient } from '@/zenn'
-
-// to manage connection pool
-const qiitaClient = new QiitaClient()
-const zennClient = new ZennClient()
+import { fetchPosts as fetchQiitaPosts } from '@/qiita'
+import { fetchPosts as fetchZennPosts } from '@/zenn'
 
 export async function GET(_: NextRequest) {
-  const [qiitaPosts, zennPosts] = await Promise.all([
-    qiitaClient.fetchPosts(),
-    zennClient.fetchPosts(),
-  ])
+  const response = await Promise.all([fetchQiitaPosts(), fetchZennPosts()])
 
-  const articles = [...qiitaPosts, ...zennPosts]
-  return NextResponse.json(articles, { status: 200 })
+  return NextResponse.json(response.flat(), { status: 200 })
 }

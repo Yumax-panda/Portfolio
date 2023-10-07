@@ -9,6 +9,7 @@ import type { ArticleProvider } from '@/constants/article'
 
 type Props = {
   title: string
+  url: string
   imageUrl: string
   provider: ArticleProvider
 }
@@ -26,7 +27,7 @@ function ArticleCard(props: Props) {
           padding: '0',
         }}
       >
-        <Link href={props.imageUrl} style={{ textDecoration: 'none' }}>
+        <Link href={props.url} style={{ textDecoration: 'none' }}>
           <Grid
             item
             xs={12}

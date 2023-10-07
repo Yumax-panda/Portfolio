@@ -56,10 +56,11 @@ function ArticleSection() {
           }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-          {articles.map((article, index) => (
-            <Grid item xs={4} key={index}>
+          {articles.map((article) => (
+            <Grid item xs={4} key={article.url}>
               <ArticleCard
                 title={article.title}
+                url={article.url}
                 imageUrl={article.imageUrl}
                 provider={article.provider}
               />

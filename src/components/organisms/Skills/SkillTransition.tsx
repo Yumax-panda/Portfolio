@@ -1,5 +1,5 @@
 import { gsap } from 'gsap'
-import { use, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 type Props = {
   delay: number

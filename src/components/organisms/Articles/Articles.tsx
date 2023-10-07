@@ -12,6 +12,7 @@ import {
 import { Controller } from 'react-hook-form'
 import SectionHeader from '../Section/SectionHeader'
 import ArticleCard from './ArticleCard'
+import ArticleTransition from './ArticleTransition'
 import Loading from '@/components/elements/Loading/Loading'
 import { useArticles } from '@/hooks/useArticles'
 
@@ -33,13 +34,15 @@ function ArticleSection() {
         >
           {articles.map((article) => (
             <Grid item xs={4} key={article.url}>
-              <ArticleCard
-                title={article.title}
-                url={article.url}
-                imageUrl={article.imageUrl}
-                likes_count={article.likes_count}
-                created_at={article.created_at}
-              />
+              <ArticleTransition>
+                <ArticleCard
+                  title={article.title}
+                  url={article.url}
+                  imageUrl={article.imageUrl}
+                  likes_count={article.likes_count}
+                  created_at={article.created_at}
+                />
+              </ArticleTransition>
             </Grid>
           ))}
         </Grid>

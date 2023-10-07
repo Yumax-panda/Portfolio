@@ -7,7 +7,7 @@ type Props = {
   children: React.ReactNode
 }
 
-export default function SkillTransition({ delay, children, duration }: Props) {
+function SkillTransition({ delay, children, duration }: Props) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -27,3 +27,5 @@ export default function SkillTransition({ delay, children, duration }: Props) {
 
   return <div ref={ref}>{children}</div>
 }
+
+export default SkillTransition

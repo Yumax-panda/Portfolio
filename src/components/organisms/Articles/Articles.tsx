@@ -1,6 +1,7 @@
 'use client'
 
-import { Box, Typography, Grid } from '@mui/material'
+import { Box, Grid } from '@mui/material'
+import SectionHeader from '../Section/SectionHeader'
 import ArticleCard from './ArticleCard'
 import Loading from '@/components/elements/Loading/Loading'
 import { useArticles } from '@/hooks/useArticles'
@@ -14,39 +15,7 @@ function ArticleSection() {
         marginTop: '4rem',
       }}
     >
-      <Grid
-        container
-        sx={{
-          borderBottom: 'solid 1px #868E96',
-          marginBottom: '1rem',
-          display: 'flex',
-          flexDirection: 'row',
-        }}
-      >
-        <Grid item sx={{ marginY: 'auto' }}>
-          <Typography
-            sx={{
-              fontWeight: 'bold',
-              fontSize: '2rem',
-              marginLeft: '5rem',
-            }}
-          >
-            Articles
-          </Typography>
-        </Grid>
-        <Grid item sx={{ marginY: 'auto' }}>
-          <Typography
-            sx={{
-              fontWeight: 'bold',
-              marginLeft: '5rem',
-              color: '#868E96',
-            }}
-            fontSize={{ md: '1.4rem', lg: '1.5rem' }}
-          >
-            Yumax-pandaが書いた記事
-          </Typography>
-        </Grid>
-      </Grid>
+      <SectionHeader title='Articles' brief='執筆記事' />
       <Loading isLoading={isLoading}>
         <Grid
           container

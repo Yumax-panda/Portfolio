@@ -1,4 +1,5 @@
 import { Box, Typography, Avatar, Grid } from '@mui/material'
+import SectionHeader from '../Section/SectionHeader'
 import { ME } from '@/constants/me'
 
 type ProfileFieldProps = {
@@ -33,22 +34,7 @@ function ProfileSection() {
         marginTop: '4rem',
       }}
     >
-      <Box
-        sx={{
-          borderBottom: 'solid 1px #868E96',
-          marginBottom: '1rem',
-        }}
-      >
-        <Typography
-          sx={{
-            fontWeight: 'bold',
-            fontSize: '1.5rem',
-            marginLeft: '5rem',
-          }}
-        >
-          Profile
-        </Typography>
-      </Box>
+      <SectionHeader title='Profile' />
       <Grid container justifyContent='space-around'>
         <Grid item>
           <Box

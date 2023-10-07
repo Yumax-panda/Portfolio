@@ -1,6 +1,7 @@
 'use client'
 
-import { Box, Typography, Grid } from '@mui/material'
+import { Box, Grid } from '@mui/material'
+import SectionHeader from '../Section/SectionHeader'
 import WorkCard from './WorkCard'
 import WorkModal from './WorkModal'
 import { useWorks } from '@/hooks/useWorks'
@@ -16,39 +17,7 @@ function WorkSection() {
           marginTop: '4rem',
         }}
       >
-        <Grid
-          container
-          sx={{
-            borderBottom: 'solid 1px #868E96',
-            marginBottom: '1rem',
-            display: 'flex',
-            flexDirection: 'row',
-          }}
-        >
-          <Grid item sx={{ marginY: 'auto' }}>
-            <Typography
-              sx={{
-                fontWeight: 'bold',
-                fontSize: '2rem',
-                marginLeft: '5rem',
-              }}
-            >
-              Works
-            </Typography>
-          </Grid>
-          <Grid item sx={{ marginY: 'auto' }}>
-            <Typography
-              sx={{
-                fontWeight: 'bold',
-                marginLeft: '5rem',
-                color: '#868E96',
-              }}
-              fontSize={{ md: '1.4rem', lg: '1.5rem' }}
-            >
-              Yumax-pandaの制作物
-            </Typography>
-          </Grid>
-        </Grid>
+        <SectionHeader title='Works' brief='制作物' />
         <Grid
           container
           sx={{

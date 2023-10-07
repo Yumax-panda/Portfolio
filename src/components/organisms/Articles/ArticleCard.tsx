@@ -1,7 +1,6 @@
 import Box from '@mui/material/Box'
 import CardMedia from '@mui/material/CardMedia'
 import Grid from '@mui/material/Grid'
-import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
 import Panel from '@/components/elements/Panel/Panel'

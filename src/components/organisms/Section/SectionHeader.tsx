@@ -8,6 +8,7 @@ type Props = {
   children?: React.ReactNode
 }
 
+// FIXME: SectionBriefの高さをSectionTitleと合わせる
 function SectionHeader({ title, brief, children }: Props) {
   return (
     <Grid

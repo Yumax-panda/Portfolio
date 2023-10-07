@@ -155,7 +155,7 @@ export const skills: Skill[] = [
     tags: ['Other'],
   },
   {
-    name: 'C言語',
+    name: 'C',
     level: 1,
     imageUrl: url('C'),
     category: 'Language',

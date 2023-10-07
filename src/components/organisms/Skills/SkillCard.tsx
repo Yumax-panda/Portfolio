@@ -17,10 +17,10 @@ function LevelField({ level }: { level: Level }) {
   return (
     <Box
       sx={{
+        marginY: '0.5rem',
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '0.5rem',
+        justifyContent: 'flex-start',
+        flexDirection: 'row',
       }}
     >
       {Array.from({ length: 3 }, (_, index) => (
@@ -28,9 +28,7 @@ function LevelField({ level }: { level: Level }) {
           key={index}
           sx={{
             display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            margin: '0.5rem',
+            marginRight: '0.5rem',
           }}
         >
           {index < level ? (
@@ -76,31 +74,43 @@ function SkillCard({ category, name, level, imageUrl, tags }: Props) {
         }}
         label={<div>{category}</div>}
       />
-      <Grid container justifyContent='space-around'>
-        <Grid item xs={6}>
+      <Grid
+        container
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+        }}
+      >
+        <Grid item xs={4}>
           <CardMedia
             component='img'
             image={imageUrl}
             alt={name}
             sx={{
               marginX: 'auto',
-              width: '5rem',
-              height: '5rem',
+              width: '4.5rem',
+              height: '4.5rem',
               objectFit: 'contain',
             }}
           />
         </Grid>
-        <Grid item xs={6}>
-          <Box sx={{ paddingRight: '1rem' }}>
-            <Typography
-              sx={{
-                fontSize: '1.5rem',
-              }}
-            >
-              {name}
-            </Typography>
-            {displayLevel(level)}
-          </Box>
+        <Grid
+          item
+          xs={8}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            paddingLeft: '0.5rem',
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: '1.5rem',
+            }}
+          >
+            {name}
+          </Typography>
+          {displayLevel(level)}
         </Grid>
       </Grid>
       <Box

@@ -1,20 +1,26 @@
 'use client'
 
-import { Box, Grid } from '@mui/material'
+import SortIcon from '@mui/icons-material/Sort'
+import {
+  Box,
+  Grid,
+  FormControl,
+  MenuItem,
+  TextField,
+  Button,
+} from '@mui/material'
+import { Controller } from 'react-hook-form'
 import SectionHeader from '../Section/SectionHeader'
 import ArticleCard from './ArticleCard'
 import Loading from '@/components/elements/Loading/Loading'
 import { useArticles } from '@/hooks/useArticles'
 
+// TODO: implement sort function
 function ArticleSection() {
-  const { articles, isLoading } = useArticles()
+  const { articles, isLoading, control } = useArticles()
 
   return (
-    <Box
-      sx={{
-        marginTop: '4rem',
-      }}
-    >
+    <Box sx={{ marginTop: '4rem' }}>
       <SectionHeader title='Articles' brief='執筆記事' />
       <Loading isLoading={isLoading}>
         <Grid

@@ -6,7 +6,7 @@ import SkillCard from './SkillCard'
 import { useSkills } from '@/hooks/useSkills'
 
 function SkillSection() {
-  // TODO: implement filtering
+  // TODO: implement filtering, sorting function
   const { skills } = useSkills()
 
   return (

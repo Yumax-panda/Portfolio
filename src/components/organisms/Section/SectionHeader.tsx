@@ -16,10 +16,10 @@ function SectionHeader({ title, brief, children }: Props) {
         borderBottom: 'solid 1px #868E96',
         marginBottom: '1rem',
         display: 'flex',
-        flexDirection: 'row',
         justifyContent: 'space-between',
         padding: '0 1rem',
       }}
+      columns={{ xs: 12 }}
     >
       <Grid
         item
@@ -29,6 +29,7 @@ function SectionHeader({ title, brief, children }: Props) {
           flexDirection: 'row',
         }}
         spacing={2}
+        xs={8}
       >
         <Grid item sx={{ marginY: 'auto' }}>
           <SectionTitle title={title} />
@@ -39,7 +40,9 @@ function SectionHeader({ title, brief, children }: Props) {
           </Grid>
         ) : null}
       </Grid>
-      <Grid item>{children}</Grid>
+      <Grid item xs={4} sx={{ marginY: 'auto' }}>
+        {children}
+      </Grid>
     </Grid>
   )
 }

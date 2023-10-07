@@ -208,4 +208,4 @@ export const skills: Skill[] = [
     category: 'Tool',
     tags: ['Other'],
   },
-]
+].sort((a, b) => (a.level > b.level ? -1 : 1)) as Skill[]

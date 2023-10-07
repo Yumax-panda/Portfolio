@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import type { UseFormRegister } from 'react-hook-form'
+import type { Control } from 'react-hook-form'
 import type { ArticleProvider } from '@/constants/article'
 import type { Post as QiitaPost } from '@/qiita/types'
 import type { Post as ZennPost } from '@/zenn/types'
@@ -18,15 +18,15 @@ type FormValues = {
 type UseArticles = {
   articles: Post[]
   isLoading: boolean
-  register: UseFormRegister<FormValues>
   hits: number
+  control: Control<FormValues>
 }
 
 export const useArticles = (): UseArticles => {
   const [articles, setArticles] = useState<Post[]>([])
   const [processedArticles, setProcessedArticles] = useState<Post[]>([])
   const [isLoading, setIsLoading] = useState(false)
-  const { register, watch } = useForm<FormValues>({
+  const { watch, control } = useForm<FormValues>({
     defaultValues: {
       sortBy: 'created_at',
       filterBy: 'All',
@@ -82,7 +82,7 @@ export const useArticles = (): UseArticles => {
   return {
     articles: processedArticles,
     isLoading,
-    register,
     hits,
+    control,
   }
 }

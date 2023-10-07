@@ -42,6 +42,7 @@ function ArticleCard(props: Props) {
               style={{
                 margin: 'auto 0',
                 objectFit: 'cover',
+                borderRadius: '0.5rem 0.5rem 0 0',
               }}
             />
           </Grid>

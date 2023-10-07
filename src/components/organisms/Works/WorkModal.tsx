@@ -4,6 +4,7 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import CardMedia from '@mui/material/CardMedia'
 import Container from '@mui/material/Container'
+import Fade from '@mui/material/Fade'
 import IconButton from '@mui/material/IconButton'
 import Modal from '@mui/material/Modal'
 import Stack from '@mui/material/Stack'
@@ -12,7 +13,7 @@ import Typography from '@mui/material/Typography'
 import List from '@/components/elements/List/List'
 import NestedList from '@/components/elements/List/NestedList'
 import Section from '@/components/elements/Section/Section'
-import { works, type Work } from '@/constants/work'
+import type { Work } from '@/constants/work'
 
 type OptionalSectionProps = {
   title: string
@@ -150,34 +151,36 @@ function WorkModal({ open, work, onClose }: Props) {
       aria-labelledby='modal-modal-title'
       aria-describedby='modal-modal-description'
     >
-      <Box
-        sx={{
-          position: 'absolute' as const,
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          bgcolor: 'background.paper',
-          border: '2px solid #000',
-          borderRadius: '0.5rem',
-          boxShadow: 24,
-          p: 4,
-          maxHeight: '80vh',
-          overflowY: 'scroll',
-        }}
-        width={{ xs: '90vw', sm: '80vw', md: '60vw', lg: '50vw' }}
-      >
-        <Stack
-          direction='row'
-          spacing={2}
+      <Fade in={open}>
+        <Box
           sx={{
-            justifyContent: 'space-between',
+            position: 'absolute' as const,
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            bgcolor: 'background.paper',
+            border: '2px solid #000',
+            borderRadius: '0.5rem',
+            boxShadow: 24,
+            p: 4,
+            maxHeight: '80vh',
+            overflowY: 'scroll',
           }}
+          width={{ xs: '90vw', sm: '80vw', md: '60vw', lg: '50vw' }}
         >
-          <ModalTitle name={work.name} github={work.github} />
-          <ClearIcon onClick={onClose} />
-        </Stack>
-        <ModalContent work={work} onClose={onClose} />
-      </Box>
+          <Stack
+            direction='row'
+            spacing={2}
+            sx={{
+              justifyContent: 'space-between',
+            }}
+          >
+            <ModalTitle name={work.name} github={work.github} />
+            <ClearIcon onClick={onClose} />
+          </Stack>
+          <ModalContent work={work} onClose={onClose} />
+        </Box>
+      </Fade>
     </Modal>
   )
 }

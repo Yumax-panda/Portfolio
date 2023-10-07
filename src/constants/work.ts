@@ -74,7 +74,7 @@ export const works: Work[] = [
     name: 'AioMK8DX.py',
     description: 'MK8DX 150cc Lounge APIのラッパーライブラリ。',
     imageUrl:
-      'https://opengraph.githubassets.com/4bb6fbc24e67f65797475aa42e833ab8afa6b814f051fcb30a812e64f9e53c22/Yumax-panda/MK8DX-discordbot',
+      'https://opengraph.githubassets.com/79af67cd1ff44efc35bdf3baf4952fe28bcbf6767255c1b77bf272e2a55774ed/Yumax-panda/AioMK8DX.py',
     categories: ['Library'],
     languages: ['Python'],
     priority: 1,

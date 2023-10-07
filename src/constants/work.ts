@@ -50,6 +50,17 @@ export type Work = {
 // 画像の縦横比は16:9 https://www.peko-step.com/tool/resize.html
 export const works: Work[] = [
   {
+    name: 'Portfolio',
+    description: 'このサイト。',
+    imageUrl: '/portfolio.png',
+    categories: ['Web'],
+    priority: 11,
+    frontend: ['React', 'Next.js'],
+    infra: ['Vercel'],
+    github: 'https://github.com/Yumax-panda/Portfolio',
+    url: 'https://portfolio-yumax-panda.vercel.app/',
+  },
+  {
     name: '交流戦 bot',
     description:
       'マリオカート8デラックスのチーム活動をサポートする機能を備えたbot。2023年4月にX(旧Twitter)でリリース、同年9月に導入数1000サーバーを達成。導入ユーザーは1万人以上。',

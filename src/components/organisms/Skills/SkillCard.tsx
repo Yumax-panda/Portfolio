@@ -1,12 +1,11 @@
 import StarIcon from '@mui/icons-material/Star'
 import StarBorderIcon from '@mui/icons-material/StarBorder'
-import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
 import CardMedia from '@mui/material/CardMedia'
 import Chip from '@mui/material/Chip'
 import Grid from '@mui/material/Grid'
-import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
+import Panel from '@/components/elements/Panel/Panel'
 import type { Level, Skill } from '@/constants/skills'
 
 type Props = Skill
@@ -66,17 +65,7 @@ const displayLevel = (level: Level) => {
 
 function SkillCard({ category, name, level, imageUrl, tags }: Props) {
   return (
-    <Paper
-      sx={{
-        width: '15rem',
-        height: '13rem',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '1rem auto',
-      }}
-    >
+    <Panel>
       <Chip
         sx={{
           fontSize: '1rem',
@@ -133,7 +122,7 @@ function SkillCard({ category, name, level, imageUrl, tags }: Props) {
           />
         ))}
       </Box>
-    </Paper>
+    </Panel>
   )
 }
 

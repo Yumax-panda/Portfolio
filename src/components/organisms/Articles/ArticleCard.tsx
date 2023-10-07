@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
+import Panel from '@/components/elements/Panel/Panel'
 import type { ArticleProvider } from '@/constants/article'
 
 type Props = {
@@ -14,16 +15,7 @@ type Props = {
 
 function ArticleCard(props: Props) {
   return (
-    <Paper
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '1rem auto',
-        width: '15rem',
-      }}
-    >
+    <Panel>
       <Box
         sx={{
           display: 'flex',
@@ -77,7 +69,7 @@ function ArticleCard(props: Props) {
           </Grid>
         </Link>
       </Box>
-    </Paper>
+    </Panel>
   )
 }
 

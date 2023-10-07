@@ -2,8 +2,8 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import CardMedia from '@mui/material/CardMedia'
 import Grid from '@mui/material/Grid'
-import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
+import Panel from '@/components/elements/Panel/Panel'
 import type { Work } from '@/constants/work'
 
 type Props = {
@@ -14,17 +14,7 @@ type Props = {
 function WorkCard({ work, onClick }: Props) {
   const { name, imageUrl } = work
   return (
-    <Paper
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '1rem auto',
-        width: '15rem',
-        border: 'solid 1px #868E96',
-      }}
-    >
+    <Panel>
       <Box
         sx={{
           display: 'flex',
@@ -98,7 +88,7 @@ function WorkCard({ work, onClick }: Props) {
           </Button>
         </Grid>
       </Box>
-    </Paper>
+    </Panel>
   )
 }
 

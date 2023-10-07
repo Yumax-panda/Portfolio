@@ -2,10 +2,11 @@
 
 import { Box, Typography, Grid } from '@mui/material'
 import ArticleCard from './ArticleCard'
+import Loading from '@/components/elements/Loading/Loading'
 import { useArticles } from '@/hooks/useArticles'
 
 function ArticleSection() {
-  const { articles } = useArticles()
+  const { articles, isLoading } = useArticles()
 
   return (
     <Box
@@ -46,24 +47,26 @@ function ArticleSection() {
           </Typography>
         </Grid>
       </Grid>
-      <Grid
-        container
-        sx={{
-          display: 'flex',
-          padding: '1rem',
-        }}
-        columns={{ xs: 4, sm: 8, md: 12 }}
-      >
-        {articles.map((article, index) => (
-          <Grid item xs={4} key={index}>
-            <ArticleCard
-              title={article.title}
-              url={article.url}
-              provider={article.provider}
-            />
-          </Grid>
-        ))}
-      </Grid>
+      <Loading isLoading={isLoading}>
+        <Grid
+          container
+          sx={{
+            display: 'flex',
+            padding: '1rem',
+          }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+        >
+          {articles.map((article, index) => (
+            <Grid item xs={4} key={index}>
+              <ArticleCard
+                title={article.title}
+                imageUrl={article.imageUrl}
+                provider={article.provider}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </Loading>
     </Box>
   )
 }

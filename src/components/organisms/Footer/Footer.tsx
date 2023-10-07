@@ -13,12 +13,11 @@ import { ME } from '@/constants/me'
 function Footer() {
   return (
     <AppBar
-      position='static'
+      position='absolute'
       component='footer'
       sx={{
         top: 'auto',
         bottom: 0,
-        boxShadow: 'none',
       }}
     >
       <Container maxWidth='lg'>

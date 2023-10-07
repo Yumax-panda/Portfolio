@@ -4,23 +4,15 @@ import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
-import { useEffect } from 'react'
 import type { ArticleProvider } from '@/constants/article'
-import { useArticleCard } from '@/hooks/useArticleCard'
 
 type Props = {
   title: string
-  url: string
+  imageUrl: string
   provider: ArticleProvider
 }
 
 function ArticleCard(props: Props) {
-  const { isLoading, imageUrl, fetchImageUrl } = useArticleCard()
-
-  useEffect(() => {
-    fetchImageUrl(props.url)
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
-
   return (
     <Paper
       sx={{
@@ -42,7 +34,7 @@ function ArticleCard(props: Props) {
           padding: '0',
         }}
       >
-        <Link href={props.url} style={{ textDecoration: 'none' }}>
+        <Link href={props.imageUrl} style={{ textDecoration: 'none' }}>
           <Grid
             item
             xs={12}
@@ -51,19 +43,15 @@ function ArticleCard(props: Props) {
               display: 'flex',
             }}
           >
-            {isLoading ? (
-              <p>loading...</p>
-            ) : (
-              <CardMedia
-                component='img'
-                src={imageUrl}
-                alt={props.title}
-                style={{
-                  margin: 'auto 0',
-                  objectFit: 'cover',
-                }}
-              />
-            )}
+            <CardMedia
+              component='img'
+              src={props.imageUrl}
+              alt={props.title}
+              style={{
+                margin: 'auto 0',
+                objectFit: 'cover',
+              }}
+            />
           </Grid>
           <Grid
             item

@@ -12,6 +12,7 @@ function Template({ children }: Props) {
     <div>
       <Header />
       <Container maxWidth='lg'>{children}</Container>
+      <div style={{ height: '5rem' }} />
       <Footer />
     </div>
   )

@@ -18,6 +18,8 @@ export default function RootLayout({
           margin: 0,
           padding: 0,
           backgroundColor: '#F8F9FA',
+          minHeight: '100vh',
+          position: 'relative',
         }}
       >
         <Template>{children}</Template>

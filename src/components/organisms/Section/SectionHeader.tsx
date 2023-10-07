@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material'
+import Grid from '@mui/material/Grid'
 import SectionBrief from '@/components/elements/SectionBrief/SectionBrief'
 import SectionTitle from '@/components/elements/SectionTitle/SectionTitle'
 

@@ -6,6 +6,8 @@ import type { Category as _Category, Skill } from '../constants/skills'
 type UseSkills = {
   register: UseFormRegister<FormValues>
   skills: Skill[]
+  more: boolean
+  displayMore: () => void
 }
 
 type Category = _Category | 'All'
@@ -16,6 +18,8 @@ type FormValues = {
 
 export const useSkills = (): UseSkills => {
   const [filteredSkills, setFilteredSkills] = useState(initialSkills)
+  const [count, setCount] = useState(10)
+  const [more, setMore] = useState(true)
   const { register, watch } = useForm<FormValues>({
     defaultValues: {
       filterBy: 'All',
@@ -32,8 +36,18 @@ export const useSkills = (): UseSkills => {
     setFilteredSkills(filtered)
   }, [filterBy])
 
+  const displayMore = () => {
+    const next = count + 10
+    if (next >= filteredSkills.length) {
+      setMore(false)
+    }
+    setCount(next)
+  }
+
   return {
     register,
-    skills: filteredSkills,
+    skills: filteredSkills.slice(0, count),
+    more,
+    displayMore,
   }
 }

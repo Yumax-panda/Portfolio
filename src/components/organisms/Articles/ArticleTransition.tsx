@@ -15,16 +15,16 @@ function ArticleTransition({ children }: Props) {
   }, [])
 
   const handleMouseEnter = () => {
-    const ctx = gsap.set(ref.current, { y: -5, duration: 0.5 })
+    const ctx = gsap.to(ref.current, { y: -5, duration: 0.2 })
     return () => {
-      ctx.kill()
+      ctx.pause()
     }
   }
 
   const handleMouseLeave = () => {
-    const ctx = gsap.set(ref.current, { y: 0, duration: 0.2 })
+    const ctx = gsap.to(ref.current, { y: 0, duration: 0.2 })
     return () => {
-      ctx.kill()
+      ctx.pause()
     }
   }
 

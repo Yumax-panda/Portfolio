@@ -23,7 +23,9 @@ export const useSkills = (): UseSkills => {
   const batch = 10
   const duration = 0.1
 
-  const [filteredSkills, setFilteredSkills] = useState(initialSkills)
+  const [filteredSkills, setFilteredSkills] = useState<Skill[]>(
+    initialSkills.slice(0, batch),
+  )
   const [count, setCount] = useState(batch)
   const [more, setMore] = useState(true)
   const { register, watch } = useForm<FormValues>({

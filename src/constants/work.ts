@@ -59,6 +59,7 @@ export const works: Work[] = [
     infra: ['Vercel'],
     github: 'https://github.com/Yumax-panda/Portfolio',
     url: 'https://portfolio-yumax-panda.vercel.app/',
+    features: ['PC, スマホに対応'],
   },
   {
     name: '交流戦 bot',
@@ -120,6 +121,12 @@ export const works: Work[] = [
     infra: ['Vercel', 'Render'],
     github: 'https://github.com/Yumax-panda/stats-frontend.ts',
     url: 'https://stats-frontend-ts.vercel.app/',
+    features: [
+      'PC, スマホに対応',
+      '戦績の閲覧',
+      '絞り込み検索',
+      'アップデート情報の閲覧',
+    ],
   },
   {
     name: 'Queue-bot',

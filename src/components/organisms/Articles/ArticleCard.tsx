@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 import Panel from '@/components/elements/Panel/Panel'
-import type { ArticleProvider } from '@/constants/article'
 
 type FooterProps = {
   likes_count: number
@@ -48,17 +47,9 @@ type Props = {
   imageUrl: string
   likes_count: number
   created_at: string
-  provider: ArticleProvider
 }
 
-function ArticleCard({
-  title,
-  url,
-  imageUrl,
-  likes_count,
-  created_at,
-  provider,
-}: Props) {
+function ArticleCard({ title, url, imageUrl, likes_count, created_at }: Props) {
   return (
     <Panel>
       <Box

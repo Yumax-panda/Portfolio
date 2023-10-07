@@ -1,19 +1,64 @@
+import FavoriteIcon from '@mui/icons-material/FavoriteBorder'
 import Box from '@mui/material/Box'
 import CardMedia from '@mui/material/CardMedia'
-import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
+import dayjs from 'dayjs'
 import Link from 'next/link'
 import Panel from '@/components/elements/Panel/Panel'
 import type { ArticleProvider } from '@/constants/article'
+
+type FooterProps = {
+  likes_count: number
+  created_at: string
+}
+
+function CardFooter({ likes_count, created_at }: FooterProps) {
+  const formattedDate = dayjs(created_at).format('YYYY/MM/DD')
+
+  return (
+    <Box
+      sx={{
+        color: '#868E96',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingX: '1rem',
+        paddingBottom: '1rem',
+      }}
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+        }}
+      >
+        <FavoriteIcon />
+        <Typography>{likes_count}</Typography>
+      </Box>
+      <Box>
+        <Typography>{formattedDate}</Typography>
+      </Box>
+    </Box>
+  )
+}
 
 type Props = {
   title: string
   url: string
   imageUrl: string
+  likes_count: number
+  created_at: string
   provider: ArticleProvider
 }
 
-function ArticleCard(props: Props) {
+function ArticleCard({
+  title,
+  url,
+  imageUrl,
+  likes_count,
+  created_at,
+  provider,
+}: Props) {
   return (
     <Panel>
       <Box
@@ -26,29 +71,20 @@ function ArticleCard(props: Props) {
           padding: '0',
         }}
       >
-        <Link href={props.url} style={{ textDecoration: 'none' }}>
-          <Grid
-            item
-            xs={12}
-            sx={{
-              justifyContent: 'center',
-              display: 'flex',
-            }}
-          >
+        <Link href={url} style={{ textDecoration: 'none' }}>
+          <Box>
             <CardMedia
               component='img'
-              src={props.imageUrl}
-              alt={props.title}
+              src={imageUrl}
+              alt={title}
               style={{
                 margin: 'auto 0',
                 objectFit: 'cover',
                 borderRadius: '0.5rem 0.5rem 0 0',
               }}
             />
-          </Grid>
-          <Grid
-            item
-            xs={12}
+          </Box>
+          <Box
             sx={{
               justifyContent: 'center',
               display: 'flex',
@@ -65,9 +101,10 @@ function ArticleCard(props: Props) {
                 color: '#868E96',
               }}
             >
-              {props.title}
+              {title}
             </Typography>
-          </Grid>
+          </Box>
+          <CardFooter likes_count={likes_count} created_at={created_at} />
         </Link>
       </Box>
     </Panel>

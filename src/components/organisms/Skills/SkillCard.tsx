@@ -5,61 +5,11 @@ import CardMedia from '@mui/material/CardMedia'
 import Chip from '@mui/material/Chip'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
+import { displayLevel } from '@/components/elements/Level/Level'
 import Panel from '@/components/elements/Panel/Panel'
-import type { Level, Skill } from '@/constants/skills'
+import type { Skill } from '@/constants/skills'
 
 type Props = Skill
-
-function LevelField({ level }: { level: Level }) {
-  const positiveColor = '#FFD700'
-  const negativeColor = '#868E96'
-
-  return (
-    <Box
-      sx={{
-        marginY: '0.5rem',
-        display: 'flex',
-        justifyContent: 'flex-start',
-        flexDirection: 'row',
-      }}
-    >
-      {Array.from({ length: 3 }, (_, index) => (
-        <Box
-          key={index}
-          sx={{
-            display: 'flex',
-            marginRight: '0.5rem',
-          }}
-        >
-          {index < level ? (
-            <StarIcon sx={{ color: positiveColor }} />
-          ) : (
-            <StarBorderIcon sx={{ color: negativeColor }} />
-          )}
-        </Box>
-      ))}
-    </Box>
-  )
-}
-
-// 先に定数として定義しておく
-const Zero = <LevelField level={0} />
-const First = <LevelField level={1} />
-const Second = <LevelField level={2} />
-const Third = <LevelField level={3} />
-
-const displayLevel = (level: Level) => {
-  switch (level) {
-    case 0:
-      return Zero
-    case 1:
-      return First
-    case 2:
-      return Second
-    case 3:
-      return Third
-  }
-}
 
 function SkillCard({ category, name, level, imageUrl, tags }: Props) {
   return (

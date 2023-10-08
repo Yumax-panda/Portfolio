@@ -8,6 +8,7 @@ type UseSkills = {
   skills: Skill[]
   more: boolean
   displayMore: () => void
+  closeAll: () => void
   count: number
   getDelay: (index: number) => number
   duration: number
@@ -52,6 +53,11 @@ export const useSkills = (): UseSkills => {
     setCount(next)
   }
 
+  const closeAll = () => {
+    setCount(batch)
+    setMore(true)
+  }
+
   const getDelay = (index: number) => (index % batch) * duration
 
   return {
@@ -59,6 +65,7 @@ export const useSkills = (): UseSkills => {
     skills: filteredSkills.slice(0, count),
     more,
     displayMore,
+    closeAll,
     count,
     getDelay,
     duration,

@@ -7,8 +7,8 @@ type Props = {
 
 function ViewMoreButton({ onClick }: Props) {
   return (
-    <Button onClick={onClick} variant='contained' color='primary'>
-      <Typography sx={{ fontWeight: 'bold' }}>もっと見る</Typography>
+    <Button onClick={onClick} variant='outlined' color='primary'>
+      <Typography sx={{ fontWeight: 'bold' }}>View More</Typography>
     </Button>
   )
 }

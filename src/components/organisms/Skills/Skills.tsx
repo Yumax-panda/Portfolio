@@ -1,6 +1,7 @@
 'use client'
 
 import { Box, Grid } from '@mui/material'
+import CloseAllButton from '../Button/CloseAllButton'
 import ViewMoreButton from '../Button/ViewMoreButton'
 import SectionHeader from '../Section/SectionHeader'
 import SkillCard from './SkillCard'
@@ -10,7 +11,7 @@ import { useSkills } from '@/hooks/useSkills'
 
 function SkillSection() {
   // TODO: implement filtering, sorting function
-  const { skills, more, displayMore, count, getDelay } = useSkills()
+  const { skills, more, displayMore, getDelay, closeAll } = useSkills()
 
   return (
     <Box
@@ -48,7 +49,11 @@ function SkillSection() {
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           <ViewMoreButton onClick={displayMore} />
         </Box>
-      ) : null}
+      ) : (
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <CloseAllButton onClick={closeAll} />
+        </Box>
+      )}
     </Box>
   )
 }

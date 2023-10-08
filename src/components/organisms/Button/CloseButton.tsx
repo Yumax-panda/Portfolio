@@ -5,12 +5,12 @@ type Props = {
   onClick: () => void
 }
 
-function CloseAllButton({ onClick }: Props) {
+function CloseButton({ onClick }: Props) {
   return (
     <Button onClick={onClick} variant='outlined' color='inherit'>
-      <Typography sx={{ fontWeight: 'bold' }}>Close All</Typography>
+      <Typography sx={{ fontWeight: 'bold' }}>Close</Typography>
     </Button>
   )
 }
 
-export default CloseAllButton
+export default CloseButton

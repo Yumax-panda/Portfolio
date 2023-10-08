@@ -1,7 +1,7 @@
 'use client'
 
 import { Box, Grid } from '@mui/material'
-import CloseAllButton from '../Button/CloseAllButton'
+import CloseButton from '../Button/CloseButton'
 import ViewMoreButton from '../Button/ViewMoreButton'
 import SectionHeader from '../Section/SectionHeader'
 import SkillCard from './SkillCard'
@@ -51,7 +51,7 @@ function SkillSection() {
         </Box>
       ) : (
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          <CloseAllButton onClick={closeAll} />
+          <CloseButton onClick={closeAll} />
         </Box>
       )}
     </Box>

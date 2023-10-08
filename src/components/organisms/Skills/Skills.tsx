@@ -4,6 +4,7 @@ import { Box, Grid } from '@mui/material'
 import ViewMoreButton from '../Button/ViewMoreButton'
 import SectionHeader from '../Section/SectionHeader'
 import SkillCard from './SkillCard'
+import SkillLevelBrief from './SkillLevelBrief'
 import SkillTransition from './SkillTransition'
 import { useSkills } from '@/hooks/useSkills'
 
@@ -18,6 +19,16 @@ function SkillSection() {
       }}
     >
       <SectionHeader title='Skills' brief='使える技術' />
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          marginBottom: '2rem',
+        }}
+      >
+        <SkillLevelBrief />
+      </Box>
       <Grid
         container
         sx={{

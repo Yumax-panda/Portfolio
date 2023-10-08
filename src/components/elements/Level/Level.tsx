@@ -8,7 +8,7 @@ type Props = {
 }
 
 function LevelField({ level }: Props) {
-  const positiveColor = '#FFD700'
+  const positiveColor = '#FFBF7F'
   const negativeColor = '#868E96'
 
   return (

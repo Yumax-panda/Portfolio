@@ -65,7 +65,7 @@ export const skills: Skill[] = [
   },
   {
     name: 'Firebase',
-    level: 1,
+    level: 2,
     imageUrl: url('Firebase-Light'),
     category: 'Infra',
     tags: ['Frontend', 'Backend'],
@@ -86,7 +86,7 @@ export const skills: Skill[] = [
   },
   {
     name: 'Git',
-    level: 1,
+    level: 2,
     imageUrl: url('Git'),
     category: 'Tool',
     tags: ['Other'],

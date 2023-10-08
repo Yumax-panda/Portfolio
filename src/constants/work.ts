@@ -64,7 +64,7 @@ export const works: Work[] = [
   {
     name: '交流戦 bot',
     description:
-      'マリオカート8デラックスのチーム活動をサポートする機能を備えたbot。2023年4月にX(旧Twitter)でリリース、同年9月に導入数1000サーバーを達成。導入ユーザーは1万人以上。',
+      'マリオカート8デラックスのチーム活動をサポートするdiscord bot。2023年4月にX(旧Twitter)でリリース、同年9月に導入数1000サーバーを達成。ユーザーは1万人以上。',
     imageUrl: '/mkbot.png',
     categories: ['Hobby'],
     priority: 10,

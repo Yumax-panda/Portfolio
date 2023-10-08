@@ -3,7 +3,7 @@ import Template from '@/components/organisms/Template/Template'
 
 export const metadata: Metadata = {
   title: 'Yumax-panda',
-  description: 'Portfolio of Yumax-panda',
+  description: 'Portfolio site of Yumax-panda',
 }
 
 export default function RootLayout({

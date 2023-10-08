@@ -13,6 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ja'>
+      <head>
+        <link rel='icon' href='/favicon.ico' />
+      </head>
       <body
         style={{
           margin: 0,

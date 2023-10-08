@@ -28,7 +28,7 @@ export const useArticles = (): UseArticles => {
   const [isLoading, setIsLoading] = useState(false)
   const { watch, control } = useForm<FormValues>({
     defaultValues: {
-      sortBy: 'created_at',
+      sortBy: 'likes_count',
       filterBy: 'All',
     },
   })

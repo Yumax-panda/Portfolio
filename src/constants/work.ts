@@ -144,4 +144,4 @@ export const works: Work[] = [
     ],
     github: 'https://github.com/Yumax-panda/Queue-bot',
   },
-]
+].sort((a, b) => b.priority - a.priority) as Work[]

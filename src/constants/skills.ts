@@ -169,7 +169,7 @@ export const skills: Skill[] = [
     tags: ['Other'],
   },
   {
-    name: 'Matlob',
+    name: 'Matlab',
     level: 1,
     imageUrl: url('Matlab-Light'),
     category: 'Language',

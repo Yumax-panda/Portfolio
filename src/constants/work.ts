@@ -85,8 +85,7 @@ export const works: Work[] = [
   {
     name: 'AioMK8DX.py',
     description: 'MK8DX 150cc Lounge APIのラッパーライブラリ。',
-    imageUrl:
-      'https://opengraph.githubassets.com/79af67cd1ff44efc35bdf3baf4952fe28bcbf6767255c1b77bf272e2a55774ed/Yumax-panda/AioMK8DX.py',
+    imageUrl: '/aiomk8dx.png',
     categories: ['Library'],
     languages: ['Python'],
     priority: 1,
@@ -96,8 +95,7 @@ export const works: Work[] = [
   {
     name: 'Pokemon.py',
     description: 'Poke APIのラッパーライブラリ。',
-    imageUrl:
-      'https://opengraph.githubassets.com/6bb1731bc7416d0a821a68736d0b1f496c66a1f2de833954628da2813e7c60cd/Yumax-panda/Pokemon.py',
+    imageUrl: '/pokemonpy.png',
     categories: ['Library'],
     languages: ['Python'],
     priority: 1,

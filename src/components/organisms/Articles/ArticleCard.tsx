@@ -1,3 +1,5 @@
+'use client'
+
 import FavoriteIcon from '@mui/icons-material/FavoriteBorder'
 import Box from '@mui/material/Box'
 import CardMedia from '@mui/material/CardMedia'

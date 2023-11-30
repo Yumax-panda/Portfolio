@@ -142,4 +142,21 @@ export const works: Work[] = [
     ],
     github: 'https://github.com/Yumax-panda/Queue-bot',
   },
+  {
+    name: 'MK App-Deta',
+    description:
+      'マリオカート8DXの交流戦の戦績管理やラウンジのレートを確認できるアプリ。MK8DX for Webの機能を拡張した。DiscordのOauth2を利用し、Discordアカウントと紐づけることができる。',
+    imageUrl: '/mkapp-deta.png',
+    categories: ['Hobby', 'Web'],
+    priority: 6,
+    frontend: ['React', 'Next.js', 'TypeScript'],
+    infra: ['Vercel', 'deta.space'],
+    github: 'https://github.com/Yumax-panda/MKApp-deta',
+    url: 'https://mk-app-deta.vercel.app/',
+    features: [
+      'PC, スマホに対応',
+      'ライトモード・ダークモード対応',
+      'Discord連携',
+    ],
+  },
 ].sort((a, b) => b.priority - a.priority) as Work[]

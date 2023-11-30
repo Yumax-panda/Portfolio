@@ -51,7 +51,7 @@ export const skills: Skill[] = [
   },
   {
     name: 'JavaScript',
-    level: 1,
+    level: 2,
     imageUrl: url('JavaScript'),
     category: 'Language',
     tags: ['Frontend', 'Backend'],
@@ -237,5 +237,33 @@ export const skills: Skill[] = [
     imageUrl: url('Flask-Light'),
     category: 'Framework',
     tags: ['Backend'],
+  },
+  {
+    name: 'Supabase',
+    level: 0,
+    imageUrl: url('Supabase-Light'),
+    category: 'Infra',
+    tags: ['Backend'],
+  },
+  {
+    name: 'Go',
+    level: 0,
+    imageUrl: url('GoLang'),
+    category: 'Language',
+    tags: ['Backend'],
+  },
+  {
+    name: 'Jest',
+    level: 0,
+    imageUrl: url('Jest'),
+    category: 'Library',
+    tags: ['Other'],
+  },
+  {
+    name: 'Postman',
+    level: 0,
+    imageUrl: url('Postman'),
+    category: 'Tool',
+    tags: ['Other'],
   },
 ].sort((a, b) => b.level - a.level) as Skill[]

@@ -30,7 +30,7 @@ function url(name: string) {
 export const skills: Skill[] = [
   {
     name: 'React',
-    level: 1,
+    level: 2,
     imageUrl: url('React-Light'),
     category: 'Library',
     tags: ['Frontend'],
